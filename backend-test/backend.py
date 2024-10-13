@@ -15,6 +15,7 @@ if not os.path.exists(sent_image):
     os.makedirs(sent_image)
 
 @app.route('/uploadFile', methods=['POST'])
+@cross_origin()
 def upload_file():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
